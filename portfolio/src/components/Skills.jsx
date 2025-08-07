@@ -75,54 +75,54 @@ const Skills = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center py-16 lg:py-20">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center py-10 md:py-14 lg:py-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Section Header */}
-        <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 lg:mb-8">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 md:mb-8 lg:mb-10" id="skills" aria-label="Technical Skills">
             Technical{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
               Skills
             </span>
           </h2>
-          <div className="w-16 lg:w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 lg:mb-8 rounded-full"></div>
-          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-16 md:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 md:mb-8 lg:mb-10 rounded-full"></div>
+          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Here are the technologies and tools I work with to create robust and scalable applications
           </p>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid sm:grid-cols-2 xl:grid-cols-2 gap-6 lg:gap-8 mb-16 lg:mb-20">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16 lg:mb-20">
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
               className="group bg-white rounded-2xl p-6 lg:p-8 xl:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-gray-200"
             >
               {/* Category Header */}
-              <div className="flex items-center mb-6 lg:mb-8">
-                <div className="text-2xl lg:text-3xl xl:text-4xl mr-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="flex items-center mb-4 md:mb-6 lg:mb-8">
+                <div className="text-2xl md:text-3xl xl:text-4xl mr-3 md:mr-4 group-hover:scale-110 transition-transform duration-300">
                   {category.icon}
                 </div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
                   {category.title}
                 </h3>
               </div>
 
               {/* Skills List */}
-              <div className="space-y-5 lg:space-y-6">
+              <div className="space-y-4 md:space-y-5 lg:space-y-6">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm lg:text-base xl:text-lg text-gray-700 font-medium">
+                      <span className="text-sm md:text-base xl:text-lg text-gray-700 font-medium">
                         {skill.name}
                       </span>
-                      <span className={`text-sm lg:text-base font-bold bg-gradient-to-r ${category.gradient} bg-clip-text text-transparent`}>
+                      <span className={`text-sm md:text-base font-bold bg-gradient-to-r ${category.gradient} bg-clip-text text-transparent`}>
                         {skill.level}%
                       </span>
                     </div>
                     
                     {/* Enhanced Progress Bar */}
-                    <div className="relative w-full bg-gray-200 rounded-full h-2 lg:h-3 overflow-hidden">
+                    <div className="relative w-full bg-gray-200 rounded-full h-2 md:h-2.5 lg:h-3 overflow-hidden">
                       <div
                         className={`absolute top-0 left-0 h-full bg-gradient-to-r ${category.gradient} rounded-full transition-all duration-1000 ease-out shadow-sm`}
                         style={{ 
@@ -139,27 +139,27 @@ const Skills = () => {
               </div>
 
               {/* Decorative element */}
-              <div className={`mt-6 h-1 bg-gradient-to-r ${category.gradient} rounded-full opacity-30 group-hover:opacity-50 transition-opacity duration-300`}></div>
+              <div className={`mt-5 md:mt-6 h-1 bg-gradient-to-r ${category.gradient} rounded-full opacity-30 group-hover:opacity-50 transition-opacity duration-300`}></div>
             </div>
           ))}
         </div>
 
         {/* Technologies Section */}
-        <div className="bg-white rounded-2xl lg:rounded-3xl p-8 lg:p-12 xl:p-16 shadow-xl border border-gray-100">
-          <div className="text-center mb-8 lg:mb-12">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        <div className="bg-white rounded-2xl lg:rounded-3xl p-6 md:p-8 lg:p-12 xl:p-16 shadow-xl border border-gray-100">
+          <div className="text-center mb-6 md:mb-8 lg:mb-12">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
               Technologies & Tools I Work With
             </h3>
-            <p className="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
               A comprehensive toolkit of modern technologies and frameworks
             </p>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 lg:gap-4">
             {technologies.map((tech, index) => (
               <span
                 key={index}
-                className={`inline-flex items-center px-4 lg:px-6 py-2 lg:py-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border text-sm lg:text-base font-semibold ${tech.color}`}
+                className={`inline-flex items-center px-3 md:px-4 lg:px-6 py-2 md:py-2.5 lg:py-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border text-sm md:text-base lg:text-lg font-semibold ${tech.color}`}
               >
                 {tech.name}
               </span>
@@ -168,8 +168,8 @@ const Skills = () => {
         </div>
 
         {/* Additional Visual Element */}
-        <div className="mt-16 lg:mt-20 text-center">
-          <div className="inline-flex items-center space-x-4 px-8 py-4 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20">
+        <div className="mt-12 md:mt-16 lg:mt-20 text-center">
+          <div className="inline-flex items-center space-x-3 md:space-x-4 px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20">
             <div className="flex space-x-1">
               {[...Array(5)].map((_, i) => (
                 <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">

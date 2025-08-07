@@ -137,29 +137,29 @@ const Contact = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center py-16 lg:py-20">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center py-10 md:py-14 lg:py-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Section Header */}
-        <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 lg:mb-8">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 md:mb-8 lg:mb-10" id="contact" aria-label="Contact">
             Let's{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
               Connect
             </span>
           </h2>
-          <div className="w-16 lg:w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 lg:mb-8 rounded-full"></div>
-          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-16 md:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 md:mb-8 lg:mb-10 rounded-full"></div>
+          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology. 
             Feel free to reach out!
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20">
+        <div className="grid gap-10 md:gap-14 lg:grid-cols-2 lg:gap-16 xl:gap-20">
           {/* Contact Information - Enhanced */}
-          <div className="order-2 lg:order-1 space-y-8 lg:space-y-10">
+          <div className="order-2 lg:order-1 space-y-8 md:space-y-10">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 lg:mb-8">Get In Touch</h3>
-              <p className="text-base lg:text-lg text-gray-700 mb-8 lg:mb-10 leading-relaxed">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6 lg:mb-8">Get In Touch</h3>
+              <p className="text-sm md:text-base lg:text-lg text-gray-700 mb-6 md:mb-8 lg:mb-10 leading-relaxed">
                 Whether you're looking for a skilled Java developer for your team, have a project in mind, 
                 or just want to connect with a fellow developer, I'd love to hear from you. Let's discuss 
                 how we can work together to build something amazing.
@@ -167,7 +167,7 @@ const Contact = () => {
             </div>
 
             {/* Enhanced Contact Info Cards */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6">
               {contactInfo.map((info, index) => (
                 <a
                   key={index}
@@ -210,9 +210,9 @@ const Contact = () => {
             </div>
 
             {/* Enhanced Quick Actions */}
-            <div className="space-y-6">
-              <h4 className="text-xl font-bold text-gray-900">Quick Actions</h4>
-              <div className="flex flex-col sm:flex-row gap-4">
+            <div className="space-y-4 md:space-y-6">
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Quick Actions</h4>
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                 <a
                   href="mailto:nitjaitwar@gmail.com"
                   className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold text-base lg:text-lg transform hover:scale-105 hover:-translate-y-1"
@@ -247,12 +247,12 @@ const Contact = () => {
 
           {/* Enhanced Contact Form */}
           <div className="order-1 lg:order-2">
-            <div className="bg-white rounded-2xl lg:rounded-3xl p-8 lg:p-10 xl:p-12 shadow-xl border-2 border-gray-100">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center lg:text-left">
+            <div className="bg-white rounded-2xl lg:rounded-3xl p-6 md:p-8 lg:p-10 xl:p-12 shadow-xl border-2 border-gray-100">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 md:mb-8 text-center lg:text-left">
                 Send Message
               </h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+              <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6" noValidate aria-label="Contact Form">
                 {submitStatus && (
                   <div className={`p-6 rounded-2xl border-2 ${
                     submitStatus.type === 'success' 
@@ -274,7 +274,7 @@ const Contact = () => {
                   </div>
                 )}
 
-                <div className="grid sm:grid-cols-2 gap-6">
+                <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
                       Your Name *
@@ -286,7 +286,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className={`w-full px-6 py-4 border-2 rounded-2xl transition-all duration-300 text-base bg-gray-50 focus:bg-white ${
+                      className={`w-full px-4 md:px-6 py-3 md:py-4 border-2 rounded-2xl transition-all duration-300 text-sm md:text-base bg-gray-50 focus:bg-white ${
                         errors.name 
                           ? 'border-red-300 focus:ring-4 focus:ring-red-100 focus:border-red-500' 
                           : 'border-gray-200 focus:ring-4 focus:ring-blue-100 focus:border-blue-500'
@@ -315,7 +315,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className={`w-full px-6 py-4 border-2 rounded-2xl transition-all duration-300 text-base bg-gray-50 focus:bg-white ${
+                      className={`w-full px-4 md:px-6 py-3 md:py-4 border-2 rounded-2xl transition-all duration-300 text-sm md:text-base bg-gray-50 focus:bg-white ${
                         errors.email 
                           ? 'border-red-300 focus:ring-4 focus:ring-red-100 focus:border-red-500' 
                           : 'border-gray-200 focus:ring-4 focus:ring-blue-100 focus:border-blue-500'
@@ -345,7 +345,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className={`w-full px-6 py-4 border-2 rounded-2xl transition-all duration-300 text-base bg-gray-50 focus:bg-white ${
+                    className={`w-full px-4 md:px-6 py-3 md:py-4 border-2 rounded-2xl transition-all duration-300 text-sm md:text-base bg-gray-50 focus:bg-white ${
                       errors.subject 
                         ? 'border-red-300 focus:ring-4 focus:ring-red-100 focus:border-red-500' 
                         : 'border-gray-200 focus:ring-4 focus:ring-blue-100 focus:border-blue-500'
@@ -374,7 +374,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className={`w-full px-6 py-4 border-2 rounded-2xl transition-all duration-300 resize-none text-base bg-gray-50 focus:bg-white ${
+                    className={`w-full px-4 md:px-6 py-3 md:py-4 border-2 rounded-2xl transition-all duration-300 resize-none text-sm md:text-base bg-gray-50 focus:bg-white ${
                       errors.message 
                         ? 'border-red-300 focus:ring-4 focus:ring-red-100 focus:border-red-500' 
                         : 'border-gray-200 focus:ring-4 focus:ring-blue-100 focus:border-blue-500'
@@ -395,13 +395,13 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-8 py-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none focus:outline-none focus:ring-4 focus:ring-blue-200 text-lg"
+                className="w-full px-6 md:px-8 py-4 md:py-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none focus:outline-none focus:ring-4 focus:ring-blue-200 text-base md:text-lg"
                   aria-describedby="submit-status"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
-                      <span>Sending Message...</span>
+                    <div className="animate-spin rounded-full h-5 w-5 md:h-6 md:w-6 border-b-2 border-white mr-2 md:mr-3"></div>
+                    <span>Sending Message...</span>
                     </div>
                   ) : (
                     <div className="flex items-center justify-center">
@@ -413,9 +413,9 @@ const Contact = () => {
                   )}
                 </button>
 
-                <p id="submit-status" className="text-sm text-gray-500 text-center">
-                  I'll respond within 24 hours! 🚀
-                </p>
+            <p id="submit-status" className="text-xs md:text-sm text-gray-500 text-center">
+              I'll respond within 24 hours! 🚀
+            </p>
               </form>
             </div>
 

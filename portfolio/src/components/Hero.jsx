@@ -25,7 +25,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden flex items-center">
+    <section className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden flex items-center py-8 sm:py-12 md:py-16">
       {/* SEO and accessibility improvements */}
       <div className="sr-only">
         <h1>Nitesh Jaitwar - Software Engineer and Java Developer</h1>
@@ -43,36 +43,36 @@ const Hero = () => {
         <div className="absolute bottom-1/4 left-1/4 w-6 h-6 bg-purple-400/30 rounded-full animate-bounce" style={{ animationDelay: '3s' }}></div>
       </div>
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-6 md:py-10 lg:py-16">
         <div className="grid lg:grid-cols-2 gap-8 xl:gap-16 items-center min-h-[calc(100vh-12rem)]">
           {/* Left Content - Enhanced for better mobile layout */}
-          <div className={`order-2 lg:order-1 space-y-6 lg:space-y-8 text-center lg:text-left transition-all duration-1000 ${
+          <div className={`order-2 lg:order-1 space-y-6 md:space-y-8 text-center lg:text-left transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <div className="space-y-4 lg:space-y-6">
+            <div className="space-y-4 md:space-y-6">
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 font-medium animate-fade-in">
                 Hi, I am
               </p>
               
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-gray-900 leading-tight">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 leading-tight">
                 Nitesh{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 block lg:inline">
                   Jaitwar
                 </span>
               </h2>
               
-              <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-gray-600 font-light leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-600 font-light leading-relaxed">
                 Software Engineer / Java Developer
               </p>
             </div>
 
-            <p className="text-base lg:text-lg xl:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base md:text-lg xl:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Java Developer with over <strong className="text-blue-600">4 years of experience</strong> specializing in building 
               robust and efficient applications. Passionate about creating scalable solutions using modern technologies and best practices.
             </p>
 
             {/* Enhanced Social Links with better alignment */}
-            <div className="flex items-center justify-center lg:justify-start gap-4 lg:gap-6">
+            <div className="flex items-center justify-center lg:justify-start gap-3 md:gap-4 lg:gap-6">
               <a
                 href="mailto:nitjaitwar@gmail.com"
                 className="group flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 bg-white shadow-lg rounded-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-110"
@@ -108,14 +108,16 @@ const Hero = () => {
             </div>
 
             {/* Enhanced CTA Buttons with better responsive design */}
-            <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 items-center justify-center lg:justify-start pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 lg:gap-6 items-center justify-center lg:justify-start pt-4">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="group w-full sm:w-auto px-6 lg:px-8 xl:px-10 py-3 lg:py-4 xl:py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-sm lg:text-base xl:text-lg"
+                className="group w-full sm:w-auto px-6 md:px-8 xl:px-10 py-3 md:py-4 xl:py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 text-sm md:text-base xl:text-lg"
+                aria-label="Get In Touch"
+                tabIndex={0}
               >
                 <span className="flex items-center justify-center">
                   <span>Get In Touch</span>
-                  <svg className="ml-2 w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </span>
@@ -123,11 +125,13 @@ const Hero = () => {
               
               <button
                 onClick={() => scrollToSection('about')}
-                className="group w-full sm:w-auto px-6 lg:px-8 xl:px-10 py-3 lg:py-4 xl:py-5 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-sm lg:text-base xl:text-lg"
+                className="group w-full sm:w-auto px-6 md:px-8 xl:px-10 py-3 md:py-4 xl:py-5 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 text-sm md:text-base xl:text-lg"
+                aria-label="Learn More"
+                tabIndex={0}
               >
                 <span className="flex items-center justify-center">
                   <span>Learn More</span>
-                  <svg className="ml-2 w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </span>
@@ -141,7 +145,7 @@ const Hero = () => {
           }`} style={{ animationDelay: '500ms' }}>
             <div className="relative">
               {/* Main profile image container with improved responsive sizing */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] 2xl:w-[32rem] 2xl:h-[32rem]">
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] 2xl:w-[32rem] 2xl:h-[32rem]">
                 {/* Gradient border with animation */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full p-1 shadow-2xl animate-pulse">
                   <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
@@ -155,19 +159,19 @@ const Hero = () => {
                 </div>
 
                 {/* Floating decorative elements with improved positioning */}
-                <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 xl:-top-6 xl:-right-6 w-12 h-12 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-white rounded-full shadow-xl flex items-center justify-center animate-bounce border-4 border-blue-100" 
+                <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 xl:-top-6 xl:-right-6 w-10 h-10 md:w-16 md:h-16 xl:w-24 xl:h-24 bg-white rounded-full shadow-xl flex items-center justify-center animate-bounce border-4 border-blue-100" 
                      aria-hidden="true" style={{ animationDelay: '1s' }}>
-                  <span className="text-lg lg:text-2xl xl:text-3xl" role="img" aria-label="Coffee">☕</span>
+                  <span className="text-lg md:text-2xl xl:text-3xl" role="img" aria-label="Coffee">☕</span>
                 </div>
                 
-                <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 xl:-bottom-6 xl:-left-6 w-10 h-10 lg:w-16 lg:h-16 xl:w-20 xl:h-20 bg-white rounded-full shadow-xl flex items-center justify-center animate-pulse border-4 border-purple-100" 
+                <div className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 xl:-bottom-6 xl:-left-6 w-8 h-8 md:w-14 md:h-14 xl:w-20 xl:h-20 bg-white rounded-full shadow-xl flex items-center justify-center animate-pulse border-4 border-purple-100" 
                      aria-hidden="true" style={{ animationDelay: '2s' }}>
-                  <span className="text-sm lg:text-xl xl:text-2xl" role="img" aria-label="Laptop">💻</span>
+                  <span className="text-sm md:text-xl xl:text-2xl" role="img" aria-label="Laptop">💻</span>
                 </div>
 
-                <div className="absolute top-1/2 -left-4 lg:-left-8 xl:-left-10 w-8 h-8 lg:w-12 lg:h-12 xl:w-16 xl:h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full shadow-lg flex items-center justify-center animate-bounce border-2 border-white" 
+                <div className="absolute top-1/2 -left-4 md:-left-8 xl:-left-10 w-6 h-6 md:w-10 md:h-10 xl:w-16 xl:h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full shadow-lg flex items-center justify-center animate-bounce border-2 border-white" 
                      aria-hidden="true" style={{ animationDelay: '3s' }}>
-                  <span className="text-xs lg:text-lg xl:text-xl text-white" role="img" aria-label="Rocket">🚀</span>
+                  <span className="text-xs md:text-lg xl:text-xl text-white" role="img" aria-label="Rocket">🚀</span>
                 </div>
               </div>
             </div>
@@ -176,13 +180,18 @@ const Hero = () => {
       </div>
 
       {/* Enhanced scroll indicator */}
-      <div className="absolute bottom-8 lg:bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce" aria-hidden="true">
-        <div className="flex flex-col items-center space-y-2 cursor-pointer" onClick={() => scrollToSection('about')}>
+      <div className="absolute bottom-6 md:bottom-10 lg:bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce" aria-hidden="true">
+        <button
+          className="flex flex-col items-center space-y-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          onClick={() => scrollToSection('about')}
+          aria-label="Scroll down to About section"
+          tabIndex={0}
+        >
           <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center p-2">
             <div className="w-1 h-3 bg-gray-400 rounded-full animate-pulse"></div>
           </div>
           <span className="text-xs text-gray-500 font-medium">Scroll down</span>
-        </div>
+        </button>
       </div>
     </section>
   );

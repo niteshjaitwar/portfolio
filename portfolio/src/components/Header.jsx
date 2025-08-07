@@ -61,17 +61,17 @@ const Header = () => {
   return (
     <>
       {/* Fixed Header */}
-      <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      <header className={`sticky top-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' 
           : 'bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 lg:h-20">
+      }`} role="navigation" aria-label="Main Navigation">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="flex justify-between items-center h-16 lg:h-20 gap-2 md:gap-4">
             {/* Logo */}
             <button 
               onClick={scrollToTop}
-              className="flex items-center space-x-3 hover:scale-105 transition-transform duration-200 group"
+              className="flex items-center gap-2 md:gap-3 hover:scale-105 transition-transform duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               aria-label="Scroll to top"
             >
               <div className="relative">
@@ -82,28 +82,29 @@ const Header = () => {
                   loading="eager"
                 />
               </div>
-              <div className="hidden sm:block">
-                <h1 className="text-lg lg:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+              <div className="hidden sm:block text-left">
+                <h1 className="text-lg md:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 leading-tight">
                   Nitesh Jaitwar
                 </h1>
-                <p className="text-xs lg:text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-200">
+                <p className="text-xs md:text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-200">
                   Java Developer
                 </p>
               </div>
             </button>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1">
+            <nav className="hidden lg:flex items-center gap-2 xl:gap-3">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
+                  className={`px-3 xl:px-4 py-2 rounded-lg font-medium transition-all duration-300 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                     activeSection === item.id
                       ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md'
                       : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
                   }`}
                   aria-label={`Navigate to ${item.label} section`}
+                  tabIndex={0}
                 >
                   <span className="mr-2 group-hover:scale-110 transition-transform duration-200 inline-block">
                     {item.icon}
@@ -120,6 +121,7 @@ const Header = () => {
                 onChange={(e) => scrollToSection(e.target.value)}
                 className="bg-white/90 backdrop-blur-sm border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                 aria-label="Navigate to section"
+                tabIndex={0}
               >
                 {navItems.map((item) => (
                   <option key={item.id} value={item.id}>
@@ -131,10 +133,11 @@ const Header = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle mobile menu"
               aria-expanded={isMenuOpen}
+              tabIndex={0}
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
                 <span className={`bg-gray-900 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
@@ -154,16 +157,18 @@ const Header = () => {
           <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
             isMenuOpen ? 'max-h-96 opacity-100 pb-4' : 'max-h-0 opacity-0'
           }`}>
-            <nav className="pt-4 space-y-1 border-t border-gray-200">
+            <nav className="pt-4 space-y-1 border-t border-gray-200" aria-label="Mobile Navigation">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center space-x-3 ${
+                  className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                     activeSection === item.id
                       ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md'
                       : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                   }`}
+                  aria-label={`Navigate to ${item.label} section`}
+                  tabIndex={0}
                 >
                   <span className="text-lg">{item.icon}</span>
                   <span className="font-medium">{item.label}</span>
@@ -175,18 +180,19 @@ const Header = () => {
       </header>
 
       {/* Bottom Navigation for Mobile */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 z-40 shadow-lg">
-        <div className="grid grid-cols-5 gap-1 px-2 py-2">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 z-40 shadow-lg" aria-label="Mobile Bottom Navigation">
+        <div className="grid grid-cols-5 gap-1 px-1 py-1 sm:px-2 sm:py-2">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`flex flex-col items-center py-2 px-1 rounded-lg transition-all duration-300 ${
+              className={`flex flex-col items-center py-2 px-1 rounded-lg transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                 activeSection === item.id
                   ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md'
                   : 'text-gray-600 hover:bg-gray-100 hover:text-blue-600'
               }`}
               aria-label={`Navigate to ${item.label} section`}
+              tabIndex={0}
             >
               <span className="text-lg mb-1">{item.icon}</span>
               <span className="text-xs font-medium leading-tight">{item.label}</span>

@@ -21,27 +21,27 @@ const About = () => {
   };
 
   return (
-    <section className="min-h-screen bg-white flex items-center py-16 lg:py-20">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-white flex items-center py-10 md:py-14 lg:py-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Section Header */}
-        <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 lg:mb-8">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 md:mb-8 lg:mb-10">
             About{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
               Me
             </span>
           </h2>
-          <div className="w-16 lg:w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 lg:mb-8 rounded-full"></div>
-          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-16 md:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 md:mb-8 lg:mb-10 rounded-full"></div>
+          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Get to know more about my journey, skills, and passion for software development
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
+        <div className="grid gap-10 md:gap-14 lg:grid-cols-2 lg:gap-16 xl:gap-20 items-center">
           {/* Left Content - Text and Info */}
-          <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
-            <div className="space-y-6">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+          <div className="space-y-6 md:space-y-8 order-2 lg:order-1">
+            <div className="space-y-4 md:space-y-6">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                 Passionate{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   Java Developer
@@ -49,20 +49,20 @@ const About = () => {
                 from Indore, MP
               </h3>
               
-              <div className="space-y-4 text-gray-700">
-                <p className="text-base lg:text-lg leading-relaxed">
+              <div className="space-y-3 md:space-y-4 text-gray-700">
+                <p className="text-base md:text-lg leading-relaxed">
                   As a <strong className="text-blue-600">Java Developer</strong> with over <strong className="text-purple-600">four years of experience</strong>, 
                   I specialize in building robust and efficient applications. I am proficient in a variety of technologies including 
                   <strong className="text-gray-900"> Core Java, Object-Oriented Programming, Exception Handling, Multithreading</strong>, 
                   and modern frameworks like <strong className="text-gray-900">Spring, Spring Boot, Hibernate, JPA, Spring Security, JWT, and Microservices</strong>.
                 </p>
                 
-                <p className="text-base lg:text-lg leading-relaxed">
+                <p className="text-base md:text-lg leading-relaxed">
                   I am experienced in <strong className="text-blue-600">Agile methodologies</strong> and am seeking a challenging role where I can apply my 
                   software development skills to contribute to project success while continuously growing within a collaborative team environment.
                 </p>
                 
-                <p className="text-base lg:text-lg leading-relaxed">
+                <p className="text-base md:text-lg leading-relaxed">
                   My passion lies in creating <strong className="text-purple-600">scalable solutions</strong> that solve real-world problems 
                   and contribute to meaningful projects that make a difference.
                 </p>
@@ -70,7 +70,7 @@ const About = () => {
             </div>
 
             {/* Enhanced Contact Info Cards */}
-            <div className="grid sm:grid-cols-1 gap-4 lg:gap-6">
+            <div className="grid grid-cols-1 gap-4 md:gap-6">
               <div className="group bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 lg:p-6 border border-blue-100 hover:border-blue-300 transition-all duration-300 hover:shadow-lg">
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
@@ -112,7 +112,9 @@ const About = () => {
             <div className="pt-6">
               <button
                 onClick={scrollToContact}
-                className="group w-full sm:w-auto inline-flex items-center justify-center px-8 lg:px-10 py-4 lg:py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-base lg:text-lg"
+                className="group w-full sm:w-auto inline-flex items-center justify-center px-8 md:px-10 py-4 md:py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 text-base md:text-lg"
+                aria-label="Let's Work Together"
+                tabIndex={0}
               >
                 <span>Let's Work Together</span>
                 <svg className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,7 +126,7 @@ const About = () => {
 
           {/* Right Content - Enhanced Stats Grid */}
           <div className="order-1 lg:order-2">
-            <div className="grid grid-cols-2 gap-4 lg:gap-6">
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
               {stats.map((stat, index) => (
                 <div
                   key={index}
@@ -150,7 +152,7 @@ const About = () => {
             </div>
 
             {/* Additional visual element */}
-            <div className="mt-8 lg:mt-12 text-center">
+            <div className="mt-8 md:mt-10 lg:mt-12 text-center">
               <div className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-100">
                 <div className="flex space-x-1">
                   {[...Array(5)].map((_, i) => (
