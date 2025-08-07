@@ -4,10 +4,26 @@ import logo from '../assets/logo.png';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Update active section based on scroll position
+      const sections = ['home', 'about', 'skills', 'experience', 'contact'];
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -17,7 +33,14 @@ const Header = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const headerHeight = 80; // Account for fixed header
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
     setIsMenuOpen(false);
   };
@@ -27,98 +50,154 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const navItems = [
+    { id: 'home', label: 'Home', icon: '🏠' },
+    { id: 'about', label: 'About', icon: '👨‍💻' },
+    { id: 'skills', label: 'Skills', icon: '⚡' },
+    { id: 'experience', label: 'Experience', icon: '💼' },
+    { id: 'contact', label: 'Contact', icon: '📧' }
+  ];
+
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/80 backdrop-blur-md shadow-sm'
-    }`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <button 
-            onClick={scrollToTop}
-            className="flex items-center space-x-3 hover:scale-105 transition-transform duration-200"
-          >
-            <img 
-              src={logo} 
-              alt="Nitesh Jaitwar Logo" 
-              className="w-12 h-12 object-contain"
-              loading="eager"
-            />
-            <span className="text-xl font-bold text-gray-900 hidden sm:block">Nitesh Jaitwar</span>
-          </button>
+    <>
+      {/* Fixed Header */}
+      <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' 
+          : 'bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 lg:h-20">
+            {/* Logo */}
+            <button 
+              onClick={scrollToTop}
+              className="flex items-center space-x-3 hover:scale-105 transition-transform duration-200 group"
+              aria-label="Scroll to top"
+            >
+              <div className="relative">
+                <img 
+                  src={logo} 
+                  alt="Nitesh Jaitwar Logo" 
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain transition-transform duration-200 group-hover:rotate-3"
+                  loading="eager"
+                />
+              </div>
+              <div className="hidden sm:block">
+                <h1 className="text-lg lg:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+                  Nitesh Jaitwar
+                </h1>
+                <p className="text-xs lg:text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-200">
+                  Java Developer
+                </p>
+              </div>
+            </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
-            >
-              About me
-            </button>
-            <button
-              onClick={() => scrollToSection('skills')}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
-            >
-              Skills
-            </button>
-            <button
-              onClick={() => scrollToSection('experience')}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
-            >
-              Experience
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors duration-200 font-medium"
-            >
-              Contact Me
-            </button>
-          </nav>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-1">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
+                    activeSection === item.id
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md'
+                      : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
+                  }`}
+                  aria-label={`Navigate to ${item.label} section`}
+                >
+                  <span className="mr-2 group-hover:scale-110 transition-transform duration-200 inline-block">
+                    {item.icon}
+                  </span>
+                  {item.label}
+                </button>
+              ))}
+            </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span className={`bg-gray-900 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
-              <span className={`bg-gray-900 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-              <span className={`bg-gray-900 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
+            {/* Tablet Navigation - Dropdown */}
+            <div className="hidden md:block lg:hidden">
+              <select
+                value={activeSection}
+                onChange={(e) => scrollToSection(e.target.value)}
+                className="bg-white/90 backdrop-blur-sm border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                aria-label="Navigate to section"
+              >
+                {navItems.map((item) => (
+                  <option key={item.id} value={item.id}>
+                    {item.icon} {item.label}
+                  </option>
+                ))}
+              </select>
             </div>
-          </button>
-        </div>
 
-        {/* Mobile Navigation */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-          <nav className="py-4 space-y-2">
+            {/* Mobile Menu Button */}
             <button
-              onClick={() => scrollToSection('about')}
-              className="block w-full text-left px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle mobile menu"
+              aria-expanded={isMenuOpen}
             >
-              About me
+              <div className="w-6 h-6 flex flex-col justify-center items-center">
+                <span className={`bg-gray-900 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+                  isMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'
+                }`}></span>
+                <span className={`bg-gray-900 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${
+                  isMenuOpen ? 'opacity-0' : 'opacity-100'
+                }`}></span>
+                <span className={`bg-gray-900 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+                  isMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'
+                }`}></span>
+              </div>
             </button>
-            <button
-              onClick={() => scrollToSection('skills')}
-              className="block w-full text-left px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
-            >
-              Skills
-            </button>
-            <button
-              onClick={() => scrollToSection('experience')}
-              className="block w-full text-left px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
-            >
-              Experience
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="block w-full text-left px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 rounded-lg transition-colors duration-200 mt-4"
-            >
-              Contact Me
-            </button>
-          </nav>
+          </div>
+
+          {/* Mobile Navigation Menu */}
+          <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+            isMenuOpen ? 'max-h-96 opacity-100 pb-4' : 'max-h-0 opacity-0'
+          }`}>
+            <nav className="pt-4 space-y-1 border-t border-gray-200">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center space-x-3 ${
+                    activeSection === item.id
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md'
+                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                  }`}
+                >
+                  <span className="text-lg">{item.icon}</span>
+                  <span className="font-medium">{item.label}</span>
+                </button>
+              ))}
+            </nav>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* Bottom Navigation for Mobile */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 z-40 shadow-lg">
+        <div className="grid grid-cols-5 gap-1 px-2 py-2">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`flex flex-col items-center py-2 px-1 rounded-lg transition-all duration-300 ${
+                activeSection === item.id
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md'
+                  : 'text-gray-600 hover:bg-gray-100 hover:text-blue-600'
+              }`}
+              aria-label={`Navigate to ${item.label} section`}
+            >
+              <span className="text-lg mb-1">{item.icon}</span>
+              <span className="text-xs font-medium leading-tight">{item.label}</span>
+            </button>
+          ))}
+        </div>
+      </nav>
+
+      {/* Spacer for fixed header */}
+      <div className="h-16 lg:h-20"></div>
+    </>
   );
 };
 
